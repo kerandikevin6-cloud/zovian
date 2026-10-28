@@ -1,5 +1,5 @@
 /* ============================================================
-   Nexas Three, mock API
+   ZovianBinary, mock API
    Everything the UI knows about prices, money and contracts comes
    through this module. It is deliberately shaped like the real
    thing (subscribe to a feed, buy, sell, list) so swapping in a
@@ -1060,7 +1060,7 @@
     referrals: {
       tiers: BOOST_TIERS,
       code: referralCode,
-      link: function () { return 'https://nexasthree.com/r/' + referralCode(); },
+      link: function () { return 'https://zovianbinary.com/r/' + referralCode(); },
       list: function () { seedReferrals(); return S.referrals.slice(); },
       count: function () { seedReferrals(); return S.referrals.length; },
       funded: fundedCount,

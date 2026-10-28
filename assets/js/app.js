@@ -1,5 +1,5 @@
 /* ============================================================
-   Nexas Three, shell
+   ZovianBinary, shell
    Injects the chrome (top bar, drawer, tab bar), owns the modal
    engine, theme, session guard, connection banner and consent
    surfaces. Page-specific logic lives in trade.js / positions.js.
@@ -603,8 +603,8 @@
      aria-label carries the whole name: a screen reader reading "NEXAS
      BINARY" off three separate elements is not the name of anything. */
   function wordmark(to) {
-    return '<a class="wordmark" href="' + to + '" aria-label="Nexas Three">' +
-      '<span class="wm-name" aria-hidden="true"><b>nexas</b><i>three</i></span>' +
+    return '<a class="wordmark" href="' + to + '" aria-label="ZovianBinary">' +
+      '<span class="wm-name" aria-hidden="true"><b>zovian</b><i>binary</i></span>' +
     '</a>';
   }
   window.NexWordmark = wordmark;
@@ -972,8 +972,8 @@
   function shareLink(url) {
     if (navigator.share) {
       navigator.share({
-        title: 'Nexas Three',
-        text: 'I trade synthetic indices on Nexas Three. Join with my link.',
+        title: 'ZovianBinary',
+        text: 'I trade synthetic indices on ZovianBinary. Join with my link.',
         url: url
       }).catch(function () {});
       return;
@@ -1158,7 +1158,7 @@
     var v = document.createElement('div');
     v.className = 'boot';
     v.id = 'bootVeil';
-    v.innerHTML = '<div class="boot-word">Nexas Three</div>' + loader() +
+    v.innerHTML = '<div class="boot-word">ZovianBinary</div>' + loader() +
       '<span>Connecting to the feed</span>';
     document.body.appendChild(v);
   }
@@ -1320,7 +1320,7 @@
     el.className = 'splash';
     el.innerHTML = '<div class="splash-inner">' +
       '<div class="pulse"><i></i><i></i><i></i></div>' +
-      '<div class="splash-word">Nexas Three</div>' +
+      '<div class="splash-word">ZovianBinary</div>' +
       '<div class="splash-msg" role="status">' + message + '</div></div>';
     document.body.appendChild(el);
     requestAnimationFrame(function () { el.classList.add('open'); });
@@ -2773,7 +2773,7 @@
         '</div>' +
         '<p class="ticket-said">' + escapeHtml(t.body) + '</p>' +
         (t.reply
-          ? '<div class="ticket-reply"><b>Nexas Three support</b><p>' + escapeHtml(t.reply) + '</p></div>'
+          ? '<div class="ticket-reply"><b>ZovianBinary support</b><p>' + escapeHtml(t.reply) + '</p></div>'
           : '<div class="ticket-wait">We usually come back within 30 minutes.</div>') +
         '<div class="ticket-when">' + when + '</div>' +
       '</div>';

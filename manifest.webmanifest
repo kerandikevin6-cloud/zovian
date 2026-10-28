@@ -1,6 +1,6 @@
 {
-  "name": "Nexas Three Terminal",
-  "short_name": "Nexas Three",
+  "name": "ZovianBinary Terminal",
+  "short_name": "ZovianBinary",
   "description": "Trade synthetic indices from your phone.",
   "start_url": "index.html",
   "scope": ".",

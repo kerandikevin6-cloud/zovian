@@ -13,7 +13,7 @@
    a claim anyone should rely on.
    ============================================================ */
 window.NEXAS_CONFIG = {
-  /* The same API as Novi: Nexas Three is a second front end on one
+  /* The same API as Novi: ZovianBinary is a second front end on one
      backend, so accounts, balances and payments are shared. */
   apiBase: 'https://backend-avzc.onrender.com',
 
