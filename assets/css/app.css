@@ -4703,3 +4703,62 @@ html{scroll-snap-type:none}
   width:5px;height:5px;margin-left:-2.5px;background:var(--accent);border-radius:50%!important;
 }
 .tabbar .tb-lab{font-size:10.5px}
+
+
+/* ================================================================
+   Novi parity
+   The pieces that carry meaning are coloured the way Novi colours
+   them: the chosen contract is tinted in the brand colour, the
+   instrument has a filled brand mark, and the three run limits read
+   green, red and amber. Everything else keeps this site's own look.
+   ================================================================ */
+:root,:root[data-theme="light"]{
+  --nv-pos:#007A50;--nv-pos-soft:#E8F7F0;--nv-neg:#D9363E;--nv-neg-soft:#FDECED;--nv-warn:#B45309;--nv-warn-soft:#FEF3C7;
+}
+:root[data-theme="dark"]{
+  --nv-pos:#17A06A;--nv-pos-soft:#0E2B26;--nv-neg:#D9483F;--nv-neg-soft:#2E1A1C;--nv-warn:#F0CB4B;--nv-warn-soft:#2E2610;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --nv-pos:#17A06A;--nv-pos-soft:#0E2B26;--nv-neg:#D9483F;--nv-neg-soft:#2E1A1C;--nv-warn:#F0CB4B;--nv-warn-soft:#2E2610;
+}}
+
+/* ---- the contract switch: a flat bar, the chosen one tinted and underlined ---- */
+html body .ctabs,html:root[data-theme] body .ctabs{
+  margin:0!important;padding:0!important;gap:0!important;
+  background:var(--surface)!important;border:0!important;border-bottom:1px solid var(--line)!important;
+  border-radius:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;
+}
+html body .ctab,html:root[data-theme] body .ctab{
+  position:relative;padding:11px 4px 12px!important;border:0!important;border-radius:0!important;
+  background:transparent!important;box-shadow:none!important;color:var(--muted)!important;font-weight:500;gap:6px;
+}
+html body .ctab .ctab-ico{display:flex!important;color:var(--muted)!important}
+html body .ctab.active,html:root[data-theme] body .ctab.active{
+  background:var(--accent-soft)!important;color:var(--accent)!important;font-weight:600;
+}
+html body .ctab.active .ctab-ico{color:var(--accent)!important}
+html body .ctab.active::after,html:root[data-theme] body .ctab.active::after{
+  content:""!important;display:block!important;position:absolute;left:22%;right:22%;bottom:0;top:auto;
+  width:auto;height:2px;background:var(--accent)!important;opacity:1!important;border-radius:0!important;
+}
+html body .ctab + .ctab::before{display:none!important}
+
+/* ---- the instrument: a filled brand square with a white line ---- */
+.sel-ico.inst-mark,.sel-row .sel-ico.inst-mark,.sel-row.on .sel-ico.inst-mark,.sel-row:hover .sel-ico.inst-mark{
+  background:var(--accent-fill)!important;border:0!important;color:#fff!important;
+  width:20px;height:20px;align-items:center;justify-content:center;border-radius:4px!important;
+}
+.sel-ico.inst-mark svg,.sel-btn .sel-ico.inst-mark svg{color:#fff!important;width:14px;height:14px}
+
+/* ---- the run limits: profit green, stop red, multiple amber ---- */
+.targets .tgt.pos{background:var(--nv-pos-soft)!important}
+.targets .tgt.neg{background:var(--nv-neg-soft)!important}
+.targets .tgt.warn{background:var(--nv-warn-soft)!important}
+.targets .tgt.pos .tgt-l,.targets .tgt.pos .tgt-v i,.targets .tgt.pos .tgt-v input{color:var(--nv-pos)!important;font-weight:600}
+.targets .tgt.neg .tgt-l,.targets .tgt.neg .tgt-v i,.targets .tgt.neg .tgt-v input{color:var(--nv-neg)!important;font-weight:600}
+.targets .tgt.warn .tgt-l,.targets .tgt.warn .tgt-v i,.targets .tgt.warn .tgt-v input{color:var(--nv-warn)!important;font-weight:600}
+.targets .tgt + .tgt{border-left:1px solid var(--surface)!important}
+
+/* ---- Auto / Manual: the chosen side filled in the brand colour, as on Novi ---- */
+.seg button.active::before{background:var(--accent-fill)!important;border-color:var(--accent-fill)!important}
+.seg button.active{color:#fff!important;font-weight:600}
