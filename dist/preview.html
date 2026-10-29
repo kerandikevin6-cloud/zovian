@@ -4768,6 +4768,35 @@ html body .ctab + .ctab::before{display:none!important}
 .seg button.active::before{background:var(--accent-fill)!important;border-color:var(--accent-fill)!important}
 .seg button.active{color:#fff!important;font-weight:600}
 
+
+/* ================================================================
+   Novi's signature on the Orbis look
+   The greys, the panels and the type stay Orbis. What carries over
+   from Novi is how it feels in the hand: a pill for Auto / Manual,
+   rounded buttons and fields, and the price line's own colour washed
+   under it.
+   ================================================================ */
+:root,:root[data-theme="light"]{--chart-fill:rgba(0,153,79,.10)}
+:root[data-theme="dark"]{--chart-fill:rgba(0,191,99,.10)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--chart-fill:rgba(0,191,99,.10)}}
+
+/* Auto / Manual: a pill, the chosen side a filled pill inside it */
+body .seg{border-radius:999px!important;padding:4px;background:var(--surface);border:1px solid var(--line)}
+body .seg button,body .seg button::before{border-radius:999px!important}
+
+/* buttons and fields: Novi's soft corners */
+body .tbtn{border-radius:10px!important}
+body .quick button,body .stake{border-radius:10px!important}
+body .btn-primary,body .acct{border-radius:12px!important}
+body .btn,body .btn-ghost,body .btn-fill,body .input,body .wd-go{border-radius:10px!important}
+body .targets{border-radius:10px!important;overflow:hidden}
+
+/* panels: rounded like Novi's chart card */
+body .chart-card,body .digits,body .panel{border-radius:14px!important}
+body .chart-tools{border-radius:8px!important}
+body .sel-btn{border-radius:8px!important}
+body .modal-box,body .card,body .sheet{border-radius:16px!important}
+
 </style>
 
 <div class="app" id="app"></div>
@@ -7455,7 +7484,7 @@ window.NEXAS_API = window.NEXAS_API || window.NEXAS_CONFIG.apiBase;
     /* left transparent on purpose: the card behind paints the ground
        and the globe watermark, which would otherwise be covered */
     ctx.clearRect(0, 0, W, H);
-    ctx.font = '10.5px "IBM Plex Mono", monospace';
+    ctx.font = '11px "IBM Plex Mono", monospace';
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'left';
 
@@ -7501,17 +7530,12 @@ window.NEXAS_API = window.NEXAS_API || window.NEXAS_CONFIG.apiBase;
       ctx.moveTo(X(0), Y(points[0].price));
       for (i = 1; i < points.length; i++) ctx.lineTo(X(i), Y(points[i].price));
       ctx.strokeStyle = css('--chart-line');
-      ctx.lineWidth = 1.6; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      ctx.lineWidth = 1.3; ctx.lineJoin = 'round';
       ctx.stroke();
       ctx.lineTo(X(points.length - 1), H - this.padB);
       ctx.lineTo(X(0), H - this.padB);
       ctx.closePath();
-      /* the wash fades out toward the axis, so the trace carries the
-         colour and the floor of the chart stays clean */
-      var wash = ctx.createLinearGradient(0, this.padT, 0, H - this.padB);
-      wash.addColorStop(0, css('--chart-fill'));
-      wash.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = wash;
+      ctx.fillStyle = css('--chart-fill');
       ctx.fill();
     }
 
@@ -7550,7 +7574,7 @@ window.NEXAS_API = window.NEXAS_API || window.NEXAS_CONFIG.apiBase;
 
       /* time chip under the crosshair */
       var tl = fmt.time(p.t);
-      ctx.font = '10.5px "IBM Plex Mono", monospace';
+      ctx.font = '11px "IBM Plex Mono", monospace';
       var tw = ctx.measureText(tl).width + 14;
       var tx2 = Math.min(Math.max(px - tw / 2, 0), w - tw);
       ctx.fillStyle = css('--surface-3');

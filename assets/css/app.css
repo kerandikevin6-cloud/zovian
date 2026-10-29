@@ -4762,3 +4762,32 @@ html body .ctab + .ctab::before{display:none!important}
 /* ---- Auto / Manual: the chosen side filled in the brand colour, as on Novi ---- */
 .seg button.active::before{background:var(--accent-fill)!important;border-color:var(--accent-fill)!important}
 .seg button.active{color:#fff!important;font-weight:600}
+
+
+/* ================================================================
+   Novi's signature on the Orbis look
+   The greys, the panels and the type stay Orbis. What carries over
+   from Novi is how it feels in the hand: a pill for Auto / Manual,
+   rounded buttons and fields, and the price line's own colour washed
+   under it.
+   ================================================================ */
+:root,:root[data-theme="light"]{--chart-fill:rgba(0,153,79,.10)}
+:root[data-theme="dark"]{--chart-fill:rgba(0,191,99,.10)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--chart-fill:rgba(0,191,99,.10)}}
+
+/* Auto / Manual: a pill, the chosen side a filled pill inside it */
+body .seg{border-radius:999px!important;padding:4px;background:var(--surface);border:1px solid var(--line)}
+body .seg button,body .seg button::before{border-radius:999px!important}
+
+/* buttons and fields: Novi's soft corners */
+body .tbtn{border-radius:10px!important}
+body .quick button,body .stake{border-radius:10px!important}
+body .btn-primary,body .acct{border-radius:12px!important}
+body .btn,body .btn-ghost,body .btn-fill,body .input,body .wd-go{border-radius:10px!important}
+body .targets{border-radius:10px!important;overflow:hidden}
+
+/* panels: rounded like Novi's chart card */
+body .chart-card,body .digits,body .panel{border-radius:14px!important}
+body .chart-tools{border-radius:8px!important}
+body .sel-btn{border-radius:8px!important}
+body .modal-box,body .card,body .sheet{border-radius:16px!important}

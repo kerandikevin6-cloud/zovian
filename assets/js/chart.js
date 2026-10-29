@@ -156,7 +156,7 @@
     /* left transparent on purpose: the card behind paints the ground
        and the globe watermark, which would otherwise be covered */
     ctx.clearRect(0, 0, W, H);
-    ctx.font = '10.5px "IBM Plex Mono", monospace';
+    ctx.font = '11px "IBM Plex Mono", monospace';
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'left';
 
@@ -202,17 +202,12 @@
       ctx.moveTo(X(0), Y(points[0].price));
       for (i = 1; i < points.length; i++) ctx.lineTo(X(i), Y(points[i].price));
       ctx.strokeStyle = css('--chart-line');
-      ctx.lineWidth = 1.6; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      ctx.lineWidth = 1.3; ctx.lineJoin = 'round';
       ctx.stroke();
       ctx.lineTo(X(points.length - 1), H - this.padB);
       ctx.lineTo(X(0), H - this.padB);
       ctx.closePath();
-      /* the wash fades out toward the axis, so the trace carries the
-         colour and the floor of the chart stays clean */
-      var wash = ctx.createLinearGradient(0, this.padT, 0, H - this.padB);
-      wash.addColorStop(0, css('--chart-fill'));
-      wash.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = wash;
+      ctx.fillStyle = css('--chart-fill');
       ctx.fill();
     }
 
@@ -251,7 +246,7 @@
 
       /* time chip under the crosshair */
       var tl = fmt.time(p.t);
-      ctx.font = '10.5px "IBM Plex Mono", monospace';
+      ctx.font = '11px "IBM Plex Mono", monospace';
       var tw = ctx.measureText(tl).width + 14;
       var tx2 = Math.min(Math.max(px - tw / 2, 0), w - tw);
       ctx.fillStyle = css('--surface-3');
